@@ -1,1 +1,1 @@
-# finaly-game
+# pin-pong
