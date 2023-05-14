@@ -17,7 +17,7 @@ class GameSprite(sprite.Sprite):
 class Player(GameSprite):
     def update_up(self):
         keys = key.get_pressed()
-        k
+        
         
         
 
