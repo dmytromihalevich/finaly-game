@@ -7,15 +7,23 @@ window = display.set_mode((600,500 ))
 game = True
 clock = time.Clock()
 
+
 btn1 = Button("exit.png", 100,100,100,50)
 btn2 = Button("start.png", 100,200,100,100)
 font.init()
 font1 = font.SysFont(None,20) 
 count = 0 
 ing = font1.render(str(count),True,(255,255,255))
+health = 100
 pausa = True 
 
-monster1 = Sprite("monstr_0.png", 100,100,32,32)
+monster1 = Sprite("monstr_1.png", 100,100,250,300)
+monster2 = Sprite("monstr_2.png", 100,100,32,32)
+monster3 = Sprite("monstr_3.png", 100,100,32,32)
+monster4 = Sprite("monstr_5.png", 100,100,32,32)
+monster5 = Sprite("pituh.png", 100,100,32,32)
+monster6 = Sprite("monstr_0.png", 100,100,32,32)
+monster7 = Sprite("zoidberg.png", 100,100,32,32)
 
 
 while game:
@@ -31,7 +39,7 @@ while game:
             pausa = False
 
     else:
-        window.fill((255,0,0))
+        window.fill((200,79,67))
         if monster1.draw(window):
             print("ggd")
 
