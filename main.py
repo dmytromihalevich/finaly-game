@@ -3,20 +3,26 @@ from button import Button
 from sprite import Sprite
 
 window = display.set_mode((600,500 ))
-display.set_caption("Click to")
+display.set_caption("Clicker")
 
 game = True
 clock = time.Clock()
 
 
-btn1 = Button("exit.png", 250,250,100,100)
-btn2 = Button("start.png", 250,100,100,100)
+btn1 = Button("ex.png", 250,250,100,100)
+btn2 = Button("st.png", 250,100,100,100)
+btn3 = Button("+10.png", 50,300,100,100)
+btn4 = Button("+1.png", 50,100,100,100)
 font.init()
-font1 = font.SysFont(None,20) 
+font1 = font.SysFont(None,100) 
 count = 0 
 bg = image.load("bg.png")
-health = 100
-ing = font1.render(str(100),True,(255,255,255))
+bg2 = image.load("bg2.png")
+coins = 0
+health = 10000
+power = 1
+ing = font1.render(str(101),True,(255,0,0))
+text_coin = font1.render("coins " + str(0),True,(255,0,0))
 pausa = True 
 
 
@@ -35,9 +41,12 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
+        if e.type == KEYDOWN:
+            if e.key == K_ESCAPE:
+                pausa = not pausa
 
     if pausa:
-        window.blit(bg,(0,0))
+        window.blit(bg2,(0,0))
         if btn1.draw(window):
             game = False 
         if btn2.draw(window):
@@ -45,48 +54,73 @@ while game:
 
     else:
         window.blit(bg,(0,0))
+        if btn4.draw(window):
+            if coins >= 1:
+                coins -= 1
+                power += 1
+
+        if btn3.draw(window):
+            if coins >= 10:
+                coins -= 10
+                power += 10
+        text_coin = font1.render("coins " + str(coins),True,(255,0,0))
+        print(coins)
         window.blit(ing,(0,0))
+        window.blit(text_coin,(200,0))
         if scr.draw(window):
             if monster1.health > 0:
-                monster1.health -= 10
-                print(monster1.health)
+                monster7.health = 10000
+                monster1.health -= power
+                coins = round(coins + 0.05, 2) 
                 ing = font1.render(str(monster1.health),True,(255,255,255))
 
             elif monster2.health > 0:
                 scr = monster2
-                monster2.health -= 10
-                print(monster2.health)
+                monster2.health -= power
+                coins = round(coins + 0.1, 2) 
                 ing = font1.render(str(monster2.health),True,(255,255,255))
             
             elif monster3.health > 0:
                 scr = monster3
-                monster3.health -= 10
-                print(monster3.health)
+                monster3.health -= power
+                coins = round(coins + 0.15, 2) 
                 ing = font1.render(str(monster3.health),True,(255,255,255))
 
             elif monster4.health > 0:
                 scr = monster4
-                monster4.health -= 10
-                print(monster4.health)
+                monster4.health -= power
+                coins = round(coins + 0.2, 2) 
                 ing = font1.render(str(monster4.health),True,(255,255,255))
 
             elif monster5.health > 0:
                 scr = monster5
-                monster5.health -= 10
-                print(monster5.health)
+                monster5.health -= power
+                coins = round(coins + 0.25, 2) 
                 ing = font1.render(str(monster5.health),True,(255,255,255))
 
             elif monster6.health > 0:
                 scr = monster6
-                monster6.health -= 10
-                print(monster6.health)
+                monster6.health -= power
+                coins = round(coins + 0.3, 2) 
                 ing = font1.render(str(monster6.health),True,(255,255,255))
 
             elif monster7.health > 0:
                 scr = monster7
-                monster7.health -= 10
-                print(monster7.health)
+                monster7.health -= power
+                coins = round(coins + 0.35, 2) 
                 ing = font1.render(str(monster7.health),True,(255,255,255))
+
+            else:
+                scr = monster1
+                monster1.health = 10000
+                monster2.health = 10000
+                monster3.health = 10000
+                monster4.health = 10000
+                monster5.health = 10000
+                monster6.health = 10000
+                monster7.health = 10000
+
+                    
         
 
 
