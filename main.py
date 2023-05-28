@@ -64,11 +64,16 @@ while game:
             if coins >= 1:
                 coins -= 1
                 power += 1
+                savePower = power
+
+
 
         if btn3.draw(window):
             if coins >= 10:
                 coins -= 10
                 power += 10
+                savePower = power
+
         text_coin = font1.render("coins " + str(coins),True,(255,0,0))
         print(coins)
         window.blit(ing,(0,0))
