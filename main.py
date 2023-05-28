@@ -13,6 +13,7 @@ btn1 = Button("ex.png", 250,250,100,100)
 btn2 = Button("st.png", 250,100,100,100)
 btn3 = Button("+10.png", 50,300,100,100)
 btn4 = Button("+1.png", 50,100,100,100)
+btn5 = Button("super.png", 50,400,100,100)
 font.init()
 font1 = font.SysFont(None,100) 
 count = 0 
@@ -69,56 +70,56 @@ while game:
         window.blit(text_coin,(200,0))
         if scr.draw(window):
             if monster1.health > 0:
-                monster7.health = 10000
+                monster7.health = 100000
                 monster1.health -= power
-                coins = round(coins + 0.05, 2) 
+                coins = round(coins + 0.25, 2) 
                 ing = font1.render(str(monster1.health),True,(255,255,255))
 
             elif monster2.health > 0:
                 scr = monster2
                 monster2.health -= power
-                coins = round(coins + 0.1, 2) 
+                coins = round(coins + 0.35, 2) 
                 ing = font1.render(str(monster2.health),True,(255,255,255))
             
             elif monster3.health > 0:
                 scr = monster3
                 monster3.health -= power
-                coins = round(coins + 0.15, 2) 
+                coins = round(coins + 0.4, 2) 
                 ing = font1.render(str(monster3.health),True,(255,255,255))
 
             elif monster4.health > 0:
                 scr = monster4
                 monster4.health -= power
-                coins = round(coins + 0.2, 2) 
+                coins = round(coins + 0.5, 2) 
                 ing = font1.render(str(monster4.health),True,(255,255,255))
 
             elif monster5.health > 0:
                 scr = monster5
                 monster5.health -= power
-                coins = round(coins + 0.25, 2) 
+                coins = round(coins + 0.55, 2) 
                 ing = font1.render(str(monster5.health),True,(255,255,255))
 
             elif monster6.health > 0:
                 scr = monster6
                 monster6.health -= power
-                coins = round(coins + 0.3, 2) 
+                coins = round(coins + 0.6, 2) 
                 ing = font1.render(str(monster6.health),True,(255,255,255))
 
             elif monster7.health > 0:
                 scr = monster7
                 monster7.health -= power
-                coins = round(coins + 0.35, 2) 
+                coins = round(coins + 0.7, 2) 
                 ing = font1.render(str(monster7.health),True,(255,255,255))
 
             else:
                 scr = monster1
-                monster1.health = 10000
-                monster2.health = 10000
-                monster3.health = 10000
-                monster4.health = 10000
-                monster5.health = 10000
-                monster6.health = 10000
-                monster7.health = 10000
+                monster1.health = 100000
+                monster2.health = 100000
+                monster3.health = 100000
+                monster4.health = 100000
+                monster5.health = 100000
+                monster6.health = 100000
+                monster7.health = 100000
 
                     
         

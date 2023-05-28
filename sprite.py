@@ -1,7 +1,7 @@
 from pygame import *
 
 class Sprite(sprite.Sprite):
-    def __init__(self,img_name,width,height,x,y, health = 10000,coins = 0):
+    def __init__(self,img_name,width,height,x,y, health = 100000,coins = 0):
         self.image2 = transform.scale(image.load(img_name), (width, height))
         self.rect = self.image2.get_rect()
         self.rect.x = x
